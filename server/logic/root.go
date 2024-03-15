@@ -16,11 +16,11 @@ func NewAppState() *AppState {
 	}
 }
 
-func (a *AppState) PutPollution(t time.Time, p persistance.Pollution) {
+func (a *AppState) AddPollution(t time.Time, p persistance.Pollution) {
 	a.db.AddPollution(p, t)
 }
 
-func (a *AppState) PutWeather(t time.Time, w persistance.Weather) {
+func (a *AppState) AddWeather(t time.Time, w persistance.Weather) {
 	a.db.AddWeather(w, t)
 }
 

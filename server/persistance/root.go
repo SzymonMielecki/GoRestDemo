@@ -11,19 +11,19 @@ type Db struct {
 }
 
 type Pollution struct {
-	Maincn string `json:"maincn"`
-	Mainus string `json:"mainus"`
-	Aqius  int    `json:"aqius"`
-	Aqicn  int    `json:"aqicn"`
+	Maincn string
+	Mainus string
+	Aqius  int
+	Aqicn  int
 }
 
 type Weather struct {
-	Ic string  `json:"ic"`
-	Tp int     `json:"tp"`
-	Pr int     `json:"pr"`
-	Hu int     `json:"hu"`
-	Ws float64 `json:"ws"`
-	Wd int     `json:"wd"`
+	Ic string
+	Tp int
+	Pr int
+	Hu int
+	Ws float64
+	Wd int
 }
 
 func NewDb() *Db {

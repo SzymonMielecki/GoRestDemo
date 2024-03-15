@@ -12,8 +12,8 @@ func main() {
 	e := echo.New()
 	state := logic.NewAppState()
 
-	e.POST("/pollution", endpoint.PutPollution(*state))
-	e.POST("/weather", endpoint.PutWeather(*state))
+	e.POST("/pollution", endpoint.AddPollution(*state))
+	e.POST("/weather", endpoint.AddWeather(*state))
 	e.GET("/pollution/:time", endpoint.GetClosestPolution(*state))
 	e.GET("/weather/:time", endpoint.GetClosestWeather(*state))
 
