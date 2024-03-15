@@ -23,3 +23,7 @@ full_server: build_server run_server
 full_client: build_client run_client
 
 target: full_server full_client
+
+test:
+	@go test -v ./...
+
