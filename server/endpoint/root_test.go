@@ -13,9 +13,9 @@ func TestGetClosestPolution(t *testing.T) {
 		a logic.AppState
 	}
 	tests := []struct {
-		name string
-		args args
 		want echo.HandlerFunc
+		args args
+		name string
 	}{
 		// TODO: Add test cases.
 	}
@@ -33,9 +33,9 @@ func TestGetClosestWeather(t *testing.T) {
 		a logic.AppState
 	}
 	tests := []struct {
-		name string
-		args args
 		want echo.HandlerFunc
+		args args
+		name string
 	}{
 		// TODO: Add test cases.
 	}
@@ -53,9 +53,9 @@ func TestAddPollution(t *testing.T) {
 		a logic.AppState
 	}
 	tests := []struct {
-		name string
-		args args
 		want echo.HandlerFunc
+		args args
+		name string
 	}{
 		// TODO: Add test cases.
 	}
@@ -73,9 +73,9 @@ func TestAddWeather(t *testing.T) {
 		a logic.AppState
 	}
 	tests := []struct {
-		name string
-		args args
 		want echo.HandlerFunc
+		args args
+		name string
 	}{
 		// TODO: Add test cases.
 	}

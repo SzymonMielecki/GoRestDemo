@@ -10,8 +10,8 @@ import (
 
 func TestNewAppState(t *testing.T) {
 	tests := []struct {
-		name string
 		want *AppState
+		name string
 	}{
 		// TODO: Add test cases.
 	}
@@ -115,9 +115,9 @@ func TestAppState_GetClosestWeather(t *testing.T) {
 		t time.Time
 	}
 	tests := []struct {
-		name    string
 		fields  fields
 		args    args
+		name    string
 		want    persistance.Weather
 		wantErr bool
 	}{

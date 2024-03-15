@@ -8,8 +8,8 @@ import (
 
 func TestNewDb(t *testing.T) {
 	tests := []struct {
-		name string
 		want *Db
+		name string
 	}{
 		// TODO: Add test cases.
 	}
@@ -66,9 +66,9 @@ func TestDb_GetClosestWeather(t *testing.T) {
 		closest time.Time
 	}
 	tests := []struct {
-		name     string
-		fields   fields
 		args     args
+		fields   fields
+		name     string
 		wantBest Weather
 		wantErr  bool
 	}{
@@ -98,8 +98,8 @@ func TestDb_AddPollution(t *testing.T) {
 		weather   map[time.Time]Weather
 	}
 	type args struct {
-		p Pollution
 		t time.Time
+		p Pollution
 	}
 	tests := []struct {
 		name   string
@@ -125,8 +125,8 @@ func TestDb_AddWeather(t *testing.T) {
 		weather   map[time.Time]Weather
 	}
 	type args struct {
-		w Weather
 		t time.Time
+		w Weather
 	}
 	tests := []struct {
 		name   string
