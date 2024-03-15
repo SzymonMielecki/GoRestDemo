@@ -18,12 +18,11 @@ type Pollution struct {
 }
 
 type Weather struct {
-	Ic string
-	Tp int
-	Pr int
-	Hu int
-	Ws float64
-	Wd int
+	Temperature   int
+	Pressure      int
+	Humidity      int
+	WindSpeed     float64
+	WindDirection int
 }
 
 func NewDb() *Db {

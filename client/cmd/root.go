@@ -81,12 +81,11 @@ var rootCmd = &cobra.Command{
 
 		url_weather := fmt.Sprintf("http://localhost%s/weather", port)
 		weather := persistance.Weather{
-			Ic: auto.Data.Current.Weather.Ic,
-			Tp: auto.Data.Current.Weather.Tp,
-			Pr: auto.Data.Current.Weather.Pr,
-			Hu: auto.Data.Current.Weather.Hu,
-			Ws: auto.Data.Current.Weather.Ws,
-			Wd: auto.Data.Current.Weather.Wd,
+			Temperature:   auto.Data.Current.Weather.Tp,
+			Pressure:      auto.Data.Current.Weather.Pr,
+			Humidity:      auto.Data.Current.Weather.Hu,
+			WindSpeed:     auto.Data.Current.Weather.Ws,
+			WindDirection: auto.Data.Current.Weather.Wd,
 		}
 		weatherJson, err := json.Marshal(weather)
 		if err != nil {

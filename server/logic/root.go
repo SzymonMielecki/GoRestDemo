@@ -21,6 +21,19 @@ func (a *AppState) AddPollution(t time.Time, p persistance.Pollution) {
 }
 
 func (a *AppState) AddWeather(t time.Time, w persistance.Weather) {
+	if w.Temperature < -50 || w.Temperature > 50 {
+		return
+	}
+	if w.Pressure < 800 || w.Pressure > 1200 {
+		return
+	}
+	if w.Humidity < 0 || w.Humidity > 100 {
+		return
+	}
+	if w.WindSpeed < 0 || w.WindSpeed > 300 {
+		return
+	}
+
 	a.db.AddWeather(w, t)
 }
 

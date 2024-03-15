@@ -18,8 +18,10 @@ func main() {
 	e.GET("/weather/:time", endpoint.GetClosestWeather(*state))
 
 	port := os.Getenv("PORT")
+
 	if port == "" {
 		port = ":1323"
 	}
+
 	e.Logger.Fatal(e.Start(port))
 }

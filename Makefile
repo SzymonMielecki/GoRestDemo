@@ -26,4 +26,3 @@ target: full_server full_client
 
 test:
 	@go test -v ./...
-
