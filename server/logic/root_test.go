@@ -74,6 +74,30 @@ func TestAppState_AddWeather(t *testing.T) {
 	}
 }
 
+func TestAppState_AddUniversal(t *testing.T) {
+	type fields struct {
+		db *persistance.Db
+	}
+	type args struct {
+		data []byte
+	}
+	tests := []struct {
+		name   string
+		fields fields
+		args   args
+	}{
+		// TODO: Add test cases.
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			a := &AppState{
+				db: tt.fields.db,
+			}
+			a.AddUniversal(tt.args.data)
+		})
+	}
+}
+
 func TestAppState_GetClosestPolution(t *testing.T) {
 	type fields struct {
 		db *persistance.Db

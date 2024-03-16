@@ -7,7 +7,6 @@ import (
 	"time"
 
 	"github.com/SzymonMielecki/air_qual/server/logic"
-	"github.com/SzymonMielecki/air_qual/server/persistance"
 	"github.com/labstack/echo/v4"
 )
 
@@ -47,34 +46,13 @@ func GetClosestWeather(a logic.AppState) echo.HandlerFunc {
 	}
 }
 
-func AddPollution(a logic.AppState) echo.HandlerFunc {
+func AddUniversal(a logic.AppState) echo.HandlerFunc {
 	return func(c echo.Context) error {
-		pollution := persistance.Pollution{}
 		body, err := io.ReadAll(c.Request().Body)
 		if err != nil {
 			return c.String(http.StatusInternalServerError, "Error reading the request body")
 		}
-		if err := json.Unmarshal(body, &pollution); err != nil {
-			return c.String(http.StatusInternalServerError, "Error unmarshalling pollution")
-		}
-		time := time.Now()
-		a.AddPollution(time, pollution)
-		return c.String(http.StatusOK, "Pollution added")
-	}
-}
-
-func AddWeather(a logic.AppState) echo.HandlerFunc {
-	return func(c echo.Context) error {
-		weather := persistance.Weather{}
-		body, err := io.ReadAll(c.Request().Body)
-		if err != nil {
-			return c.String(http.StatusInternalServerError, "Error reading the request body")
-		}
-		if err := json.Unmarshal(body, &weather); err != nil {
-			return c.String(http.StatusInternalServerError, "Error unmarshalling weather")
-		}
-		time := time.Now()
-		a.AddWeather(time, weather)
-		return c.String(http.StatusOK, "Weather Added")
+		a.AddUniversal(body)
+		return c.String(http.StatusOK, "Data added")
 	}
 }

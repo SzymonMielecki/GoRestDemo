@@ -48,7 +48,7 @@ func TestGetClosestWeather(t *testing.T) {
 	}
 }
 
-func TestAddPollution(t *testing.T) {
+func TestAddUniversal(t *testing.T) {
 	type args struct {
 		a logic.AppState
 	}
@@ -61,28 +61,8 @@ func TestAddPollution(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := AddPollution(tt.args.a); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("AddPollution() = %v, want %v", got, tt.want)
-			}
-		})
-	}
-}
-
-func TestAddWeather(t *testing.T) {
-	type args struct {
-		a logic.AppState
-	}
-	tests := []struct {
-		want echo.HandlerFunc
-		args args
-		name string
-	}{
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := AddWeather(tt.args.a); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("AddWeather() = %v, want %v", got, tt.want)
+			if got := AddUniversal(tt.args.a); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("AddUniversal() = %v, want %v", got, tt.want)
 			}
 		})
 	}
