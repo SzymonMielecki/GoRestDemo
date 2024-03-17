@@ -3,38 +3,25 @@ package persistance
 import (
 	"errors"
 	"time"
+
+	"github.com/SzymonMielecki/air_qual/server/utils"
 )
 
 type Db struct {
-	pollution map[time.Time]Pollution
-	weather   map[time.Time]Weather
-}
-
-type Pollution struct {
-	Maincn string
-	Mainus string
-	Aqius  int
-	Aqicn  int
-}
-
-type Weather struct {
-	Temperature   int
-	Pressure      int
-	Humidity      int
-	WindSpeed     float64
-	WindDirection int
+	pollution map[time.Time]utils.Pollution
+	weather   map[time.Time]utils.Weather
 }
 
 func NewDb() *Db {
 	return &Db{
-		pollution: make(map[time.Time]Pollution),
-		weather:   make(map[time.Time]Weather),
+		pollution: make(map[time.Time]utils.Pollution),
+		weather:   make(map[time.Time]utils.Weather),
 	}
 }
 
-func (d *Db) GetClosestPolution(closest time.Time) (best Pollution, err error) {
+func (d *Db) GetClosestPolution(closest time.Time) (best utils.Pollution, err error) {
 	if len(d.pollution) == 0 {
-		return Pollution{}, errors.New("no pollution data")
+		return utils.Pollution{}, errors.New("no pollution data")
 	}
 	timeDiff := time.Hour * 24 * 365
 	for k, v := range d.pollution {
@@ -46,9 +33,9 @@ func (d *Db) GetClosestPolution(closest time.Time) (best Pollution, err error) {
 	return best, nil
 }
 
-func (d *Db) GetClosestWeather(closest time.Time) (best Weather, err error) {
+func (d *Db) GetClosestWeather(closest time.Time) (best utils.Weather, err error) {
 	if len(d.weather) == 0 {
-		return Weather{}, errors.New("no weather data")
+		return utils.Weather{}, errors.New("no weather data")
 	}
 	timeDiff := time.Hour * 24 * 365
 	for k, v := range d.weather {
@@ -60,10 +47,10 @@ func (d *Db) GetClosestWeather(closest time.Time) (best Weather, err error) {
 	return best, nil
 }
 
-func (d *Db) AddPollution(p Pollution, t time.Time) {
+func (d *Db) AddPollution(p utils.Pollution, t time.Time) {
 	d.pollution[t] = p
 }
 
-func (d *Db) AddWeather(w Weather, t time.Time) {
+func (d *Db) AddWeather(w utils.Weather, t time.Time) {
 	d.weather[t] = w
 }

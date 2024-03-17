@@ -8,7 +8,7 @@ build_client:
 build_server:
 	@go build -o ${BINARY_NAME}_server server/main.go
 
-build: setup build_client build_server
+build: build_client build_server
 
 run_server:
 	./air_qual_server

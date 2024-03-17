@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"github.com/SzymonMielecki/air_qual/server/persistance"
+	"github.com/SzymonMielecki/air_qual/server/utils"
 )
 
 func TestNewAppState(t *testing.T) {
@@ -30,7 +31,7 @@ func TestAppState_AddPollution(t *testing.T) {
 	}
 	type args struct {
 		t time.Time
-		p persistance.Pollution
+		p utils.Pollution
 	}
 	tests := []struct {
 		name   string
@@ -55,7 +56,7 @@ func TestAppState_AddWeather(t *testing.T) {
 	}
 	type args struct {
 		t time.Time
-		w persistance.Weather
+		w utils.Weather
 	}
 	tests := []struct {
 		name   string
@@ -109,7 +110,7 @@ func TestAppState_GetClosestPolution(t *testing.T) {
 		name    string
 		fields  fields
 		args    args
-		want    persistance.Pollution
+		want    utils.Pollution
 		wantErr bool
 	}{
 		// TODO: Add test cases.
@@ -142,7 +143,7 @@ func TestAppState_GetClosestWeather(t *testing.T) {
 		fields  fields
 		args    args
 		name    string
-		want    persistance.Weather
+		want    utils.Weather
 		wantErr bool
 	}{
 		// TODO: Add test cases.

@@ -4,6 +4,8 @@ import (
 	"reflect"
 	"testing"
 	"time"
+
+	"github.com/SzymonMielecki/air_qual/server/utils"
 )
 
 func TestNewDb(t *testing.T) {
@@ -24,8 +26,8 @@ func TestNewDb(t *testing.T) {
 
 func TestDb_GetClosestPolution(t *testing.T) {
 	type fields struct {
-		pollution map[time.Time]Pollution
-		weather   map[time.Time]Weather
+		pollution map[time.Time]utils.Pollution
+		weather   map[time.Time]utils.Weather
 	}
 	type args struct {
 		closest time.Time
@@ -34,7 +36,7 @@ func TestDb_GetClosestPolution(t *testing.T) {
 		name     string
 		fields   fields
 		args     args
-		wantBest Pollution
+		wantBest utils.Pollution
 		wantErr  bool
 	}{
 		// TODO: Add test cases.
@@ -59,8 +61,8 @@ func TestDb_GetClosestPolution(t *testing.T) {
 
 func TestDb_GetClosestWeather(t *testing.T) {
 	type fields struct {
-		pollution map[time.Time]Pollution
-		weather   map[time.Time]Weather
+		pollution map[time.Time]utils.Pollution
+		weather   map[time.Time]utils.Weather
 	}
 	type args struct {
 		closest time.Time
@@ -69,7 +71,7 @@ func TestDb_GetClosestWeather(t *testing.T) {
 		args     args
 		fields   fields
 		name     string
-		wantBest Weather
+		wantBest utils.Weather
 		wantErr  bool
 	}{
 		// TODO: Add test cases.
@@ -94,12 +96,12 @@ func TestDb_GetClosestWeather(t *testing.T) {
 
 func TestDb_AddPollution(t *testing.T) {
 	type fields struct {
-		pollution map[time.Time]Pollution
-		weather   map[time.Time]Weather
+		pollution map[time.Time]utils.Pollution
+		weather   map[time.Time]utils.Weather
 	}
 	type args struct {
 		t time.Time
-		p Pollution
+		p utils.Pollution
 	}
 	tests := []struct {
 		name   string
@@ -121,12 +123,12 @@ func TestDb_AddPollution(t *testing.T) {
 
 func TestDb_AddWeather(t *testing.T) {
 	type fields struct {
-		pollution map[time.Time]Pollution
-		weather   map[time.Time]Weather
+		pollution map[time.Time]utils.Pollution
+		weather   map[time.Time]utils.Weather
 	}
 	type args struct {
 		t time.Time
-		w Weather
+		w utils.Weather
 	}
 	tests := []struct {
 		name   string

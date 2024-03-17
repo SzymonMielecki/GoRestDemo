@@ -19,7 +19,7 @@ var (
 
 var rootCmd = &cobra.Command{
 	Use:   "air_qual",
-	Short: "check air quality in your area",
+	Short: "Check air quality in your area",
 	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
 		formatedUrl := fmt.Sprintf("http://api.airvisual.com/v2/city?city=%s&state=%s&country=%s&key=%s", city, state, country, apiKey)
