@@ -22,8 +22,8 @@ var rootCmd = &cobra.Command{
 	Short: "Check air quality in your area",
 	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
-		formatedUrl := fmt.Sprintf("http://api.airvisual.com/v2/city?city=%s&state=%s&country=%s&key=%s", city, state, country, apiKey)
-		resp, err := http.Get(formatedUrl)
+		formatedApiUrl := fmt.Sprintf("http://api.airvisual.com/v2/city?city=%s&state=%s&country=%s&key=%s", city, state, country, apiKey)
+		resp, err := http.Get(formatedApiUrl)
 		if err != nil {
 			fmt.Println("Error: ", err)
 			return
@@ -35,6 +35,7 @@ var rootCmd = &cobra.Command{
 			fmt.Println("Error: ", err)
 			return
 		}
+
 		port := os.Getenv("PORT")
 		if port == "" {
 			port = ":1323"
@@ -43,8 +44,8 @@ var rootCmd = &cobra.Command{
 		url_weather := fmt.Sprintf("http://localhost%s/pushData", port)
 
 		contentType := "application/json"
-		_, err = http.Post(url_weather, contentType, bytes.NewBuffer(body))
-		if err != nil {
+
+		if _, err = http.Post(url_weather, contentType, bytes.NewBuffer(body)); err != nil {
 			fmt.Println("Error: ", err)
 			return
 		}

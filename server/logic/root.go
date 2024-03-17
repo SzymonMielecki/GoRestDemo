@@ -26,6 +26,7 @@ func (a *AppState) AddPollution(t time.Time, p utils.Pollution) {
 	if p.Aqicn < 0 {
 		return
 	}
+
 	a.db.AddPollution(p, t)
 }
 
@@ -55,12 +56,14 @@ func (a *AppState) AddUniversal(data []byte) {
 		fmt.Println("Error: ", err)
 		return
 	}
+
 	a.AddPollution(auto.Data.Current.Pollution.Ts, utils.Pollution{
 		Maincn: auto.Data.Current.Pollution.Maincn,
 		Mainus: auto.Data.Current.Pollution.Mainus,
 		Aqius:  auto.Data.Current.Pollution.Aqius,
 		Aqicn:  auto.Data.Current.Pollution.Aqicn,
 	})
+
 	a.AddWeather(auto.Data.Current.Weather.Ts, utils.Weather{
 		Temperature:   auto.Data.Current.Weather.Tp,
 		Pressure:      auto.Data.Current.Weather.Pr,
