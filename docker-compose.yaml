@@ -1,0 +1,9 @@
+services:
+    server:
+        build:
+            context: .
+            dockerfile: server.Dockerfile
+        ports:
+            - "1323:1323"
+        environment:
+            - PORT=:1323
