@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/SzymonMielecki/air_qual/server/logic"
+	"github.com/SzymonMielecki/GoRestDemo/server/logic"
 	"github.com/labstack/echo/v4"
 )
 

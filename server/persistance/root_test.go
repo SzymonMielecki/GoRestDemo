@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/SzymonMielecki/air_qual/server/utils"
+	"github.com/SzymonMielecki/GoRestDemo/server/utils"
 )
 
 func TestNewDb(t *testing.T) {

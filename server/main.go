@@ -3,8 +3,8 @@ package main
 import (
 	"os"
 
-	"github.com/SzymonMielecki/air_qual/server/endpoint"
-	"github.com/SzymonMielecki/air_qual/server/logic"
+	"github.com/SzymonMielecki/GoRestDemo/server/endpoint"
+	"github.com/SzymonMielecki/GoRestDemo/server/logic"
 	"github.com/labstack/echo/v4"
 )
 

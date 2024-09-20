@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/SzymonMielecki/air_qual/client/cmd"
+	"github.com/SzymonMielecki/GoRestDemo/client/cmd"
 )
 
 func Execute() {

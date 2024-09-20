@@ -1,4 +1,4 @@
-module github.com/SzymonMielecki/air_qual
+module github.com/SzymonMielecki/GoRestDemo
 
 go 1.22.0
 

@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/SzymonMielecki/air_qual/server/persistance"
-	"github.com/SzymonMielecki/air_qual/server/utils"
+	"github.com/SzymonMielecki/GoRestDemo/server/persistance"
+	"github.com/SzymonMielecki/GoRestDemo/server/utils"
 )
 
 type AppState struct {

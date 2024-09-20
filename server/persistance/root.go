@@ -4,7 +4,7 @@ import (
 	"errors"
 	"time"
 
-	"github.com/SzymonMielecki/air_qual/server/utils"
+	"github.com/SzymonMielecki/GoRestDemo/server/utils"
 )
 
 type Db struct {
